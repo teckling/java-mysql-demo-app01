@@ -10,7 +10,7 @@ public class JavaMysqlDemo {
 		Statement myStmt = null;
 		ResultSet myRs = null;
 		
-		String dbUrl = "jdbc:mysql://localhost:3306/demo";
+		String dbUrl = "jdbc:mysql://localhost:3306/gomalaysia";
 		String user = "root";		
 		String pass = "root";
 
@@ -22,11 +22,11 @@ public class JavaMysqlDemo {
 		myStmt = myConn.createStatement();
 			
 		// Execute SQL query and get the result set
-		myRs = myStmt.executeQuery("select * from employees");
+		myRs = myStmt.executeQuery("select * from events");
 			
 		// Process the result set
 		while (myRs.next()) {
-			System.out.println(myRs.getString("last_name") + ", " + myRs.getString("first_name"));
+			System.out.println(myRs.getString("event_name") + ", " + myRs.getDate("start_date") + ", " + myRs.getString("venue"));
 		}
 		
 	}
